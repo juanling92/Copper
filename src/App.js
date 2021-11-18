@@ -24,7 +24,7 @@ class App extends Component {
       <Header 
       img='./Components/Header/logo.png'/>
       <Navbar/>
-      <ItemListContainer/>
+      <ItemListContainer greeting='Bienvenidos a Cooper'/>
       </div>
     );
   }

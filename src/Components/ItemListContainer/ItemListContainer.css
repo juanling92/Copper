@@ -1,5 +1,13 @@
-.ItemListContainer {
-  position: absolute;
+.greet {
+  font-size: 30px;
+  position: relative;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+}
+
+.container {
+  position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
