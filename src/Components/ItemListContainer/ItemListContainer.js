@@ -1,13 +1,13 @@
 import React from 'react'
-import { List } from 'semantic-ui-react'
+import { List, Button } from 'semantic-ui-react'
 import './ItemListContainer.css'
-import ItemCount from '../ItemCount/ItemCount';
+import ItemList from '../ItemList/ItemList.js'
 
 const listContainer = ({greeting}) => 
   (
     <>
     <div className ='greet'>{greeting}</div>
-    <ItemCount/>
+    <ItemList/>
     <div className='container'>
       <List bulleted horizontal>
       <List.Item as='a'>Nosotros</List.Item>
@@ -15,6 +15,12 @@ const listContainer = ({greeting}) =>
       <List.Item as='a'>Contacto</List.Item>
       </List>
     </div>
+    <div>
+    <Button circular color='facebook' icon='facebook' />
+    <Button circular color='twitter' icon='twitter' />
+    <Button circular color='linkedin' icon='linkedin' />
+    <Button circular color='google plus' icon='google plus' />
+  </div>
     </>
 )
 
