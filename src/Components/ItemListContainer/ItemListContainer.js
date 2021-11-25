@@ -1,7 +1,7 @@
 import React from 'react'
 import { List, Button } from 'semantic-ui-react'
 import './ItemListContainer.css'
-import ItemList from '../ItemList/ItemList.js'
+import ItemList from '../ItemList/ItemList'
 
 const listContainer = ({greeting}) => 
   (

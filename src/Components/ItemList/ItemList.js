@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './data.json'
 import './ItemList.css'
 
-import ItemCount from '../ItemCount/ItemCount';
+import Item from '../Item/Item'
 
 const ItemList = () => {
     const [products, setProducts] = useState([]);
@@ -22,7 +22,7 @@ const ItemList = () => {
             <h1>Productos</h1>
             <div className='Item'>
             {products.map((product)=> {
-                return <ItemCount data={product} key={product.id}/>;
+                return <Item data={product} key={product.id}/>;
             })}
             </div>
         </div>
