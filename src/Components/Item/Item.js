@@ -1,31 +1,23 @@
 import React from 'react'
 import { Card,Button, Image} from 'semantic-ui-react'
-
-import ItemCount from '../ItemCount/ItemCount';
+import './Item.css'
+import { Link } from 'react-router-dom';
 
 const Item = ({data}) => 
     (
     <>
     <Card>
-    <Image src={data.avatar_url} wrapped ui={false} />
+    <Image src={data.imagen} wrapped ui={false} className='img' height="#" width="#"/>
     <Card.Content>
-    <Card.Header>{data.login}</Card.Header>
-    <Card.Meta>
-        <span className='date'>{data.id}</span>
-    </Card.Meta>
-    <Card.Description>
-        {data.url}
-    </Card.Description>
+    <Card.Header>{data.producto}</Card.Header>
     </Card.Content>
     <Card.Content extra>
-        <ItemCount stock={10} initial={1}/>
-    </Card.Content>
-    <Card.Content extra>
-    <Button>Comprar</Button>
+        <Link to={`/item/${data.id}`}>
+    <Button>Ver más</Button>
+    </Link>
     </Card.Content>
     </Card>
     </>
     )
-
 
 export default Item;
