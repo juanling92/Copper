@@ -3,7 +3,7 @@ import React from 'react'
 const Ropa = () => {
     return (
         <div>
-            <h1>QLOQ</h1>
+            <h1>Ropa</h1>
         </div>
     )
 }

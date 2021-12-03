@@ -23,15 +23,14 @@ function App ()  {
     return (
       <>
       <div className='App'>
-      <Header 
-      img='./Components/Header/logo.png'/>
+      <Header img='./Components/Header/logo.png'/>
         <Router>
         <Navbar/>
           <Routes>
             <Route path='/' element={<Home/>}></Route>
-            <Route path='/category/:categoryId' element={<Ropa/>}></Route>
-            <Route path='/category/:categoryId' element={<Accesorios/>}></Route>
-            <Route path='/category/:categoryId' element={<Descuentos/>}></Route>
+            <Route path='/category/ropa' element={<Ropa/>}></Route>
+            <Route path='/category/accesorios' element={<Accesorios/>}></Route>
+            <Route path='/category/descuentos' element={<Descuentos/>}></Route>
             <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
           </Routes>
         </Router>

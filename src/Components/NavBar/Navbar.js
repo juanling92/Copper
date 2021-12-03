@@ -20,17 +20,17 @@ export default class menu extends Component {
           active={activeItem === 'Home'}
           onClick={this.handleItemClick}
         />
-        <Menu.Item header as={NavLink} to='/Ropa'
+        <Menu.Item header as={NavLink} to='/category/ropa'
           name='Ropa'
           active={activeItem === 'Ropa'}
           onClick={this.handleItemClick}
         />
-        <Menu.Item header as={NavLink} to='/Accesorios'
+        <Menu.Item header as={NavLink} to='/category/accesorios'
           name='Accesorios'
           active={activeItem === 'Accesorios'}
           onClick={this.handleItemClick}
         />
-        <Menu.Item header as={NavLink} to='/Descuentos'
+        <Menu.Item header as={NavLink} to='/category/descuentos'
           name='Descuentos'
           active={activeItem === 'Descuentos'}
           onClick={this.handleItemClick}

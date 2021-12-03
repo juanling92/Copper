@@ -13,10 +13,9 @@ const items = [
 const ItemDetailContainer = () => {
     const {id} = useParams()
     const [itemDetail, setItemDetail] = useState({});
-    console.log(itemDetail)
     let getItem = new Promise((resolve, reject) => {
         setTimeout(() => {
-            items ? resolve(items) : reject("Error 404")
+            items ? resolve(items) : reject('Error 404')
             console.log('Soy un item', resolve);
         }, 2000);
     });
