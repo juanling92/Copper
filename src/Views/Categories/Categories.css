@@ -1,0 +1,7 @@
+.categorias {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 25px;
+  margin: 10px;
+}

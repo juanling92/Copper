@@ -1,13 +1,12 @@
 import React from 'react'
 import { Card,Button, Image} from 'semantic-ui-react'
-import './Item.css'
 import { Link } from 'react-router-dom';
 
 const Item = ({data}) => 
     (
     <>
     <Card>
-    <Image src={data.imagen} wrapped ui={false} className='img' height="#" width="#"/>
+    <Image src={data.imagen} wrapped ui={false} height="#" width="#"/>
     <Card.Content>
     <Card.Header>{data.producto}</Card.Header>
     </Card.Content>

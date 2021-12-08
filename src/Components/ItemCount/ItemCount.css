@@ -1,0 +1,10 @@
+.boton {
+  display: flex;
+  align-content: center;
+  text-align: center;
+}
+.botonDos {
+  display: flex;
+  align-content: center;
+  text-align: center;
+}

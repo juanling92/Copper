@@ -6,12 +6,10 @@ import Item from '../Item/Item'
 const ItemList = ({products}) => {
     console.log('Item List', products)
     return (
-        <div>
-            <div className='Item'>
-            {products.map((product)=> {
-                return <Item data={product} key={product.id}/>;
-            })}
-            </div>
+        <div className='Item'>
+        {products.map((product)=> {
+            return <Item data={product} key={product.id}/>;
+        })}
         </div>
     );
 };
