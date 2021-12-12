@@ -1,12 +1,20 @@
 import React from 'react'
+import { useState, useContext } from 'react/cjs/react.development';
+import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react'
-//import { CartItemsProvider } from '../../Context/cartContext/cartContext';
+import { CartContext } from '../../Context/cartContext/useContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 
 const ItemDetail = ({item}) => {
-    
-console.log('Detail: ', item);
+    const [add, setAdd] =useState(false)
+
+    const {addItem} = useContext(CartContext)
+//    const addItem = () => {
+//        setAdd(!add)
+//        console.log('Producto añadido')
+//    }
+
     return (
         <>
         <Card>
@@ -21,15 +29,22 @@ console.log('Detail: ', item);
         </Card.Description>
         </Card.Content>
         <Card.Content extra >
-            <ItemCount className='boton' stock={10} initial={1}/>
+            {
+                add ? 
+                <div className="ui two buttons">
+                <Link to='/'>
+                <div className="ui basic green button">Seguir comprando</div>
+                </Link>
+                <Link to='/cart'>
+                <div className="ui basic red button">Terminar compra</div>
+                </Link>
+                </div> 
+                : 
+                <ItemCount className='boton' stock={10} initial={1} item ={item} addItem={addItem}/>
+            }
         </Card.Content>
         </Card>
         </>
     )
 }
 export default ItemDetail
-/*
-<Link to='/cart'>
-<Button>Añadir al carrito</Button>
-</Link>
-*/

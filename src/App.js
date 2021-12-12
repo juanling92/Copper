@@ -11,6 +11,7 @@ import Header from './Components/Header/Header';
 import Navbar from './Components/NavBar/Navbar';
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import ErrorPage from "./Components/Error/ErrorPage";
+import Cart from "./Components/Cart/Cart";
 
 //Views
 import Home from './Views/Home/Home'
@@ -18,13 +19,13 @@ import Categories from './Views/Categories/Categories'
 import Descuentos from './Views/Descuentos/Descuentos'
 
 //Context
-import { CartItemsProvider } from './Context/cartContext/cartContext';
+import { CartProvider } from './Context/cartContext/useContext';
 
 
 function App ()  {
     return (
       <>
-      <CartItemsProvider>
+      <CartProvider>
       <div className='App'>
       <Header img='./Components/Header/logo.png'/>
         <Router>
@@ -34,6 +35,7 @@ function App ()  {
             <Route path='/category/:categoryId' element={<Categories/>}></Route>
             <Route path='/category/descuentos' element={<Descuentos/>}></Route>
             <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
+            <Route path='/Cart' element={<Cart/>}></Route>
             <Route path='*' element={<ErrorPage/>}></Route>
           </Routes>
         </Router>
@@ -51,7 +53,7 @@ function App ()  {
       <Button circular color='linkedin' icon='linkedin' />
       <Button circular color='google plus' icon='google plus' />
     </div>
-    </CartItemsProvider>
+    </CartProvider>
       </>
     );
 }
