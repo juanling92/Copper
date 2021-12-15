@@ -20,7 +20,7 @@ export const CartProvider = ({children}) => {
             return prod
         }))
         :
-        setItems([...items, {id: item.id, name: item.producto, price: item.precio, qty: qty}]);
+        setItems([...items, {id: item.id, name: item.producto, price: item.precio, img: item.imagen, qty: qty}]);
     }
 
     const removeItem = (id) => {

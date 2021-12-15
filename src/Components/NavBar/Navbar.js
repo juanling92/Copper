@@ -10,10 +10,10 @@ return (
         <Menu.Item header as={NavLink} to='/'
           name='Inicio'
         />
-        <Menu.Item header as={NavLink} to={`/category/ropa`}
+        <Menu.Item header as={NavLink} to='/category/ropa'
           name='Ropa'
         />
-        <Menu.Item header as={NavLink} to={`/category/accesorios`}
+        <Menu.Item header as={NavLink} to='/category/accesorios'
           name='Accesorios'
         />
         <Menu.Item header as={NavLink} to='/category/descuentos'
@@ -33,3 +33,4 @@ return (
 
 export default NavBar;
 
+//        <Menu.Item header as={NavLink} to={`/category/ropa`}

@@ -9,13 +9,14 @@ const CartIcon = () => {
 
     items.map((item) => {
         itemsInCart = itemsInCart + item.qty;
+        return itemsInCart
     })
-    
+
     return (
     <>
     <NavLink to='/Cart'>
     <div className='itemsInCart'>
-        {itemsInCart}
+        {itemsInCart} <br/>
     <Icon name='shopping cart' size='small' />
     </div>
     </NavLink>

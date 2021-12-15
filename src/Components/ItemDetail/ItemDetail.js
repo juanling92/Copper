@@ -10,10 +10,11 @@ const ItemDetail = ({item}) => {
     const [add, setAdd] =useState(false)
 
     const {addItem} = useContext(CartContext)
-//    const addItem = () => {
-//        setAdd(!add)
-//        console.log('Producto añadido')
-//    }
+
+    const changeButton = () => {
+        setAdd(!add)
+        console.log('Producto añadido')
+    }
 
     return (
         <>
@@ -40,11 +41,11 @@ const ItemDetail = ({item}) => {
                 </Link>
                 </div> 
                 : 
-                <ItemCount className='boton' stock={10} initial={1} item ={item} addItem={addItem}/>
+                <ItemCount className='boton' stock={10} initial={1} item ={item} onClick={changeButton} addItem={addItem}/>
             }
         </Card.Content>
         </Card>
         </>
     )
 }
-export default ItemDetail
+export default ItemDetail;
