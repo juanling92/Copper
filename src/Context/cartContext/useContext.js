@@ -10,6 +10,7 @@ export const CartProvider = ({children}) => {
         return found;
     }
 
+//Añadir items al carrito
     const addItem = (item, qty) => {
         isInCart(item.id)
         ?
@@ -20,13 +21,14 @@ export const CartProvider = ({children}) => {
             return prod
         }))
         :
-        setItems([...items, {id: item.id, name: item.producto, price: item.precio, img: item.imagen, qty: qty}]);
+        setItems([...items, {id: item.id, name: item.producto, price: item.precio, img: item.imagen, qty: qty, stock: item.stock}]);
     }
-
+//Remover items por ID
     const removeItem = (id) => {
         setItems(items.filter(item => item.id !== id))
     }
 
+//Vaciar carrito
     const clearItems = () => {
         setItems([])
     }

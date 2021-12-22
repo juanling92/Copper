@@ -1,51 +1,69 @@
 import React from 'react'
-import { useState, useContext } from 'react/cjs/react.development';
+import { useContext, useState } from 'react/cjs/react.development';
 import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react'
 import { CartContext } from '../../Context/cartContext/useContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 
-const ItemDetail = ({item}) => {
-    const [add, setAdd] =useState(false)
-
+const ItemDetail = (data) => {
+    
+    const [shoppingCart, setShoppingCart] = useState(false);
     const {addItem} = useContext(CartContext)
-
-    const changeButton = () => {
-        setAdd(!add)
-        console.log('Producto añadido')
-    }
-
+    let item = data.data;
+    const formatPeso = new Intl.NumberFormat("es-CL", {
+        style: "currency",
+        currency: "CLP"
+      });
+    const onAdd = (qty) => {
+      addItem(item, qty);
+      setShoppingCart(true);
+      alert(`You added: ${qty} ${item.name} to your cart`);
+    };
     return (
         <>
         <Card>
-        <Image src={item.imagen} wrapped ui={false} className='img' height="#" width="#"/>
+        <Image src={item.img} wrapped ui={false} className='img' alt='Imagen del prod'/>
         <Card.Content>
-        <Card.Header>{item.producto}</Card.Header>
+        <Card.Header>{item.product}</Card.Header>
         <Card.Meta>
-            <span className='date'>{item.precio}</span>
+            <span className='date'>{formatPeso.format(item.price)}</span>
         </Card.Meta>
         <Card.Description>
-            {item.descripcion}
+            {item.description}
         </Card.Description>
         </Card.Content>
         <Card.Content extra >
-            {
-                add ? 
-                <div className="ui two buttons">
-                <Link to='/'>
-                <div className="ui basic green button">Seguir comprando</div>
-                </Link>
-                <Link to='/cart'>
-                <div className="ui basic red button">Terminar compra</div>
-                </Link>
-                </div> 
-                : 
-                <ItemCount className='boton' stock={10} initial={1} item ={item} onClick={changeButton} addItem={addItem}/>
-            }
+        {!shoppingCart && (<ItemCount className='boton' stock={item.stock} initial={1} data={item} onAdd={onAdd}/>)}
+        {shoppingCart &&(<Link to='/cart'>
+        <div className="ui basic gray button">Terminar compra</div>
+        </Link>)}
+        </Card.Content>
+        <Card.Content extra >
+
         </Card.Content>
         </Card>
         </>
     )
 }
+
 export default ItemDetail;
+
+//const [add, setAdd] =useState(false)
+//const changeButton = () => {
+//    setAdd(!add)
+//    console.log('Producto añadido')
+//}
+//{
+//    add ? 
+//    <div className="ui two buttons">
+//    <Link to='/'>
+//    <div className="ui basic green button">Seguir comprando</div>
+//    </Link>
+//    <Link to='/cart'>
+//    <div className="ui basic red button">Terminar compra</div>
+//    </Link>
+//    </div> 
+//    : 
+//    <ItemCount className='boton' stock={10} initial={1} item={data} onClick={changeButton} addItem={addItem}/>
+//}

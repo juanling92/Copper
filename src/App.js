@@ -16,11 +16,10 @@ import Cart from "./Components/Cart/Cart";
 //Views
 import Home from './Views/Home/Home'
 import Categories from './Views/Categories/Categories'
-import Descuentos from './Views/Descuentos/Descuentos'
+import Generos from './Views/Generos/Generos'
 
 //Context
 import { CartProvider } from './Context/cartContext/useContext';
-
 
 function App ()  {
     return (
@@ -33,7 +32,7 @@ function App ()  {
           <Routes>
             <Route path='/' element={<Home/>}></Route>
             <Route path='/category/:categoryId' element={<Categories/>}></Route>
-            <Route path='/category/descuentos' element={<Descuentos/>}></Route>
+            <Route path='/genre/:genre' element={<Generos/>}></Route>
             <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
             <Route path='/Cart' element={<Cart/>}></Route>
             <Route path='*' element={<ErrorPage/>}></Route>

@@ -4,7 +4,6 @@ import './ItemList.css'
 import Item from '../Item/Item'
 
 const ItemList = ({products}) => {
-    console.log('Item List', products)
     return (
         <div className='Item'>
         {products.map((product)=> {

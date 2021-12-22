@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import './Categories.css'
+import './Generos.css'
 import { useParams } from 'react-router';
 
 import ItemDetail from '../../Components/ItemDetail/ItemDetail';
@@ -8,14 +8,14 @@ import ItemDetail from '../../Components/ItemDetail/ItemDetail';
 import {db} from '../../firebase/firebaseConfig';
 import {collection, query, getDocs, where} from 'firebase/firestore';
 
-const Categories = () => {
+const Generos = () => {
     const [itemDetail, setItemDetail] = useState([]);
     
-    let category = useParams();
+    let genre = useParams();
 
     useEffect ( () => {
     const getProducts = async () => {
-    const q = query(collection(db, 'copper'), where('category','==',category.categoryId));
+    const q = query(collection(db, 'copper'), where('genre','==',genre.genre));
     const docs = [];
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc)=>{
@@ -24,11 +24,11 @@ const Categories = () => {
     setItemDetail(docs);
     };
     getProducts();
-    },[category.categoryId])
+    },[genre.genre])
 
     return (
         <>
-        <div className='categorias'>
+        <div className='genres'>
             {itemDetail.map((itemData) => {
                 return <ItemDetail data={itemData} key={itemData.id}/>
             })}
@@ -37,4 +37,4 @@ const Categories = () => {
         </>
     )
 }
-export default Categories;
+export default Generos;

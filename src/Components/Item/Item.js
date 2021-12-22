@@ -6,9 +6,9 @@ const Item = ({data}) =>
     (
     <>
     <Card>
-    <Image src={data.imagen} wrapped ui={false} height="#" width="#"/>
+    <Image src={data.img} wrapped ui={false} alt='Imagen de producto'/>
     <Card.Content>
-    <Card.Header>{data.producto}</Card.Header>
+    <Card.Header>{data.product}</Card.Header>
     </Card.Content>
     <Card.Content extra>
         <Link to={`/item/${data.id}`}>

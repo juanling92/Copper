@@ -2,7 +2,7 @@ import React, {useState}from 'react'
 import {Icon, Button} from 'semantic-ui-react'
 import './ItemCount.css'
 
-const ItemCount = ({stock, initial, item, addItem}) => {
+const ItemCount = ({stock, initial, data, onAdd}) => {
     const  [qty, setQty] = useState(initial ? initial : 0);
 
 const handleCounterUp = () => {
@@ -23,7 +23,7 @@ return (
         <p>{qty}</p>
         <Icon onClick={handleCounterUp} name='plus'/>
         <Icon onClick={handleCounterDown} name='minus'/>
-        <Button onClick={() => addItem(item, qty)}>Añadir al carrito</Button>
+        <Button onClick={() => onAdd(data, qty)}>Añadir al carrito</Button>
     </>
     )
 }

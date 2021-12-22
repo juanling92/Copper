@@ -4,14 +4,20 @@ import './Cart.css'
 
 
 const Cart = () => {
-    const {items, removeItem, clearItems, qty} = useContext(CartContext);
+    const {items, removeItem, clearItems} = useContext(CartContext);
     let itemsInCart =0;
 
+//    const sum = items.reduce((sum, i) => (
+//        sum += i.count * i.price
+//      ), 0)
     items.map((item) => {
         itemsInCart = itemsInCart + item.qty;
         return itemsInCart
     })
 
+//    let precio = parseInt(items.price);
+//    let cant = parseInt(items.qty)
+//    let montoItem = console.log(precio*cant);
     return (
         <div>
             <div className='bodyContainer' >
@@ -33,7 +39,7 @@ const Cart = () => {
             </div>
             <div className='counter'>
             <div className='btn'>+</div>
-            <div className='count'>{qty}</div>
+            <div className='count'>{item.qty}</div>
             <div className='btn'>-</div>
             </div>
             <div className='prices'>
@@ -51,7 +57,7 @@ const Cart = () => {
             <div className='Subtotal'>Sub-Total</div>
             <div className='items'>{itemsInCart} productos</div>
             </div>
-            <div className='total-amount'>$6.18</div>
+            <div className='total-amount'>xXx</div>
             </div>
             <button className='CartButton'>Checkout</button>
             </div> 

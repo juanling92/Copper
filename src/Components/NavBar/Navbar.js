@@ -10,14 +10,17 @@ return (
         <Menu.Item header as={NavLink} to='/'
           name='Inicio'
         />
-        <Menu.Item header as={NavLink} to='/category/ropa'
+        <Menu.Item header as={NavLink} to='/category/clothing'
           name='Ropa'
         />
-        <Menu.Item header as={NavLink} to='/category/accesorios'
+        <Menu.Item header as={NavLink} to='/category/accesories'
           name='Accesorios'
         />
-        <Menu.Item header as={NavLink} to='/category/descuentos'
-          name='Descuentos'
+        <Menu.Item header as={NavLink} to='/genre/women'
+          name='Mujeres'
+        />
+        <Menu.Item header as={NavLink} to='/genre/men'
+          name='Hombres'
         />
         <Menu.Menu position='right'>
           <Menu.Item>
