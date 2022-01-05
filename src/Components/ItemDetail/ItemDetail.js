@@ -1,15 +1,14 @@
-import React from 'react'
-import { useContext, useState } from 'react/cjs/react.development';
+import React, { useState } from 'react'
+import { useCartContext } from '../../Context/cartContext/useContext';
 import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react'
-import { CartContext } from '../../Context/cartContext/useContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 
 const ItemDetail = (data) => {
     
     const [shoppingCart, setShoppingCart] = useState(false);
-    const {addItem} = useContext(CartContext)
+    const {addItem} = useCartContext();
     let item = data.data;
     const formatPeso = new Intl.NumberFormat("es-CL", {
         style: "currency",
@@ -18,7 +17,7 @@ const ItemDetail = (data) => {
     const onAdd = (qty) => {
       addItem(item, qty);
       setShoppingCart(true);
-      alert(`You added: ${qty} ${item.name} to your cart`);
+      console.log(`You added: ${qty} ${item.product} to your cart`);
     };
     return (
         <>
@@ -38,9 +37,6 @@ const ItemDetail = (data) => {
         {shoppingCart &&(<Link to='/cart'>
         <div className="ui basic gray button">Terminar compra</div>
         </Link>)}
-        </Card.Content>
-        <Card.Content extra >
-
         </Card.Content>
         </Card>
         </>

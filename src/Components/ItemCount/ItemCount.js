@@ -2,28 +2,31 @@ import React, {useState}from 'react'
 import {Icon, Button} from 'semantic-ui-react'
 import './ItemCount.css'
 
-const ItemCount = ({stock, initial, data, onAdd}) => {
-    const  [qty, setQty] = useState(initial ? initial : 0);
+const ItemCount = ({stock, initial, onAdd}) => {
+    const  [count, setCount] = useState(initial ? initial : 0);
 
 const handleCounterUp = () => {
-    if(qty<stock) {
-        setQty(qty + 1);
+    if(count<stock) {
+        setCount(count + 1);
     } else 
     {alert("No hay stock.")}
 };
 const handleCounterDown = () => {
-    if(qty>1) {
-        setQty(qty - 1);
+    if(count>1) {
+        setCount(count - 1);
     } else 
     {alert("No puede seleccionarse menos de un producto.")}
 };
-
+const handleOnAdd = () => {
+    onAdd(count);
+    setCount(initial);
+  };
 return (
     <>
-        <p>{qty}</p>
+        <p>{count}</p>
         <Icon onClick={handleCounterUp} name='plus'/>
         <Icon onClick={handleCounterDown} name='minus'/>
-        <Button onClick={() => onAdd(data, qty)}>Añadir al carrito</Button>
+        <Button onClick={handleOnAdd}>Añadir al carrito</Button>
     </>
     )
 }

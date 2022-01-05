@@ -12,6 +12,7 @@ import Navbar from './Components/NavBar/Navbar';
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import ErrorPage from "./Components/Error/ErrorPage";
 import Cart from "./Components/Cart/Cart";
+import ContactForm from "./Components/ContactForm/ContactForm";
 
 //Views
 import Home from './Views/Home/Home'
@@ -26,8 +27,8 @@ function App ()  {
       <>
       <CartProvider>
       <div className='App'>
-      <Header img='./Components/Header/logo.png'/>
-        <Router>
+      <Router>
+      <Header/>
         <Navbar/>
           <Routes>
             <Route path='/' element={<Home/>}></Route>
@@ -35,22 +36,23 @@ function App ()  {
             <Route path='/genre/:genre' element={<Generos/>}></Route>
             <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
             <Route path='/Cart' element={<Cart/>}></Route>
+            <Route path='/form' element={<ContactForm/>}></Route>
             <Route path='*' element={<ErrorPage/>}></Route>
           </Routes>
         </Router>
       </div>
       <div className='container'>
       <List bulleted horizontal>
-      <List.Item as='a'>Nosotros</List.Item>
-      <List.Item as='a'>Preguntas frecuentes</List.Item>
-      <List.Item as='a'>Contacto</List.Item>
+      <List.Item href='/*' as='a'>Nosotros</List.Item>
+      <List.Item href='/*' as='a'>Preguntas frecuentes</List.Item>
+      <List.Item href='/*' as='a'>Contacto</List.Item>
       </List>
     </div>
       <div className ='greet'> 
-      <Button circular color='facebook' icon='facebook' />
-      <Button circular color='twitter' icon='twitter' />
-      <Button circular color='linkedin' icon='linkedin' />
-      <Button circular color='google plus' icon='google plus' />
+      <Button href='/*' circular color='facebook' icon='facebook' />
+      <Button href='/*' circular color='twitter' icon='twitter' />
+      <Button href='/*' circular color='linkedin' icon='linkedin' />
+      <Button href='/*' circular color='google plus' icon='google plus' />
     </div>
     </CartProvider>
       </>

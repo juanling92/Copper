@@ -3,6 +3,7 @@ import './ItemDetailContainer.css'
 import { useParams } from 'react-router';
 
 import ItemDetail from '../ItemDetail/ItemDetail';
+import Spinner from '../Spinner/Spinner';
 
 //Firebase
 import {db} from '../../firebase/firebaseConfig';
@@ -10,6 +11,7 @@ import {collection, query, getDocs, where, documentId} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
     const [itemDetail, setItemDetail] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     
     let paramsID = useParams();
 
@@ -24,16 +26,24 @@ const ItemDetailContainer = () => {
     setItemDetail(docs);
     };
     getProducts();
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 1000);
     },[paramsID])
 
     return (
         <>
+		{isLoading ? (
+			<div className='spinner'>
+				<Spinner/>
+			</div>
+		) : (
         <div className='ItemDetailContainer'>
             {itemDetail.map((itemData) => {
                 return <ItemDetail data={itemData} key={itemData.id}/>
             })}
         </div>
-
+        )}
         </>
     )
 }

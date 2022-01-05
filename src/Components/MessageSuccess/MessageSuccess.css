@@ -1,0 +1,7 @@
+.menssage {
+  text-align: left;
+  display: grid;
+  justify-items: center;
+  padding: 25px;
+  margin: 10px;
+}

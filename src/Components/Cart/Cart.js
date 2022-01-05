@@ -1,29 +1,28 @@
 import React, {useContext} from 'react'
 import { CartContext } from '../../Context/cartContext/useContext'
 import './Cart.css'
-
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
-    const {items, removeItem, clearItems} = useContext(CartContext);
+    const {items, removeItem, clearItems, totalPrice} = useContext(CartContext);
     let itemsInCart =0;
 
-//    const sum = items.reduce((sum, i) => (
-//        sum += i.count * i.price
-//      ), 0)
     items.map((item) => {
         itemsInCart = itemsInCart + item.qty;
         return itemsInCart
     })
+    const formatPeso = new Intl.NumberFormat("es-CL", {
+        style: "currency",
+        currency: "CLP"
+      });
 
-//    let precio = parseInt(items.price);
-//    let cant = parseInt(items.qty)
-//    let montoItem = console.log(precio*cant);
     return (
         <div>
             <div className='bodyContainer' >
             <div className='cartContainer'>
             <div className='cartHeader'>
             <h3 className='heading'>Carrito de compras</h3>
+            {items.length === 0 && <p>El carrito está vacío</p>}
             <h5 className='action' onClick={()=>clearItems()}>Vaciar carrito</h5>    
             </div>
             { items.map((item) => (
@@ -33,20 +32,14 @@ const Cart = () => {
             </div>
             <div className='about' key={item.id}>
             <h1 className='title'>{item.name}</h1>
-            <h3 className='subtitle'>{item.price}</h3>
-            {//<img src={item.img} style={{ height:'30px' }} alt='cuadradinho'/>
-            }
+            <h3 className='subtitle'>{formatPeso.format(item.price)}</h3>
             </div>
             <div className='counter'>
-            <div className='btn'>+</div>
-            <div className='count'>{item.qty}</div>
-            <div className='btn'>-</div>
+            <div className='count'>Cant.: {item.qty}</div>
             </div>
             <div className='prices'>
-            <div className='amount'>{item.price}</div>
-            {//<div class='save'><u>Save for later</u></div>
-            }
-            <div className='remove' onClick={()=>removeItem(item.id)}><u>Remove</u></div>
+            <div className='amount'>{formatPeso.format(item.price*item.qty)}</div>
+            <div className='remove' onClick={()=>removeItem(item.id)}><u>Quitar</u></div>
             </div>
             </div>
             ))}
@@ -57,9 +50,11 @@ const Cart = () => {
             <div className='Subtotal'>Sub-Total</div>
             <div className='items'>{itemsInCart} productos</div>
             </div>
-            <div className='total-amount'>xXx</div>
+            <div className='total-amount'>{formatPeso.format(totalPrice())}</div>
             </div>
-            <button className='CartButton'>Checkout</button>
+            <Link to='/form'>
+            <button className='CartButton'>Comprar</button>
+            </Link>
             </div> 
             </div>
             </div>
